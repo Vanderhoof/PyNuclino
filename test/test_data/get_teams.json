@@ -1,0 +1,24 @@
+{
+    "status": "success",
+    "data": {
+        "object": "list",
+        "results": [
+            {
+                "object": "team",
+                "id": "95e4c341-8202-4667-b2ae-84b4597f7c6d",
+                "url": "https://app.nuclino.com/Fareughel-Inc",
+                "name": "Fareughel Inc",
+                "createdAt": "2022-01-26T16:32:31.423Z",
+                "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540"
+            },
+            {
+                "object": "team",
+                "id": "a831fa72-b17b-4a7b-8f24-d7280358bd6d",
+                "url": "https://app.nuclino.com/Bleiben-Corp",
+                "name": "Bleiben Corp",
+                "createdAt": "2022-01-26T17:20:55.092Z",
+                "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540"
+            }
+        ]
+    }
+}

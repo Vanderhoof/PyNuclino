@@ -1,0 +1,15 @@
+{
+    "status": "success",
+    "data": {
+        "object": "file",
+        "id": "9a008226-25d7-4ccd-9298-4f96b2b78732",
+        "itemId": "401a8926-4f44-40ed-b8f4-54dbfa05939d",
+        "fileName": "Screenshot from 2022-01-25 16-07-09.png",
+        "createdAt": "2022-01-26T20:19:16.400Z",
+        "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+        "download": {
+            "url": "https://nuclino-files.s3.eu-central-1.amazonaws.com/c9105221-54dc-455d-973b-6e2aef548a59/Screenshot%20from%202022-01-25%2016-07-09.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJY5JRN4FK3MM4FKQ%2F20220127%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20220127T085150Z&X-Amz-Expires=600&X-Amz-Signature=89c27b9cbec9447f863942d2a866eb0f1370745b61dc3fd9bf536ab469209b33&X-Amz-SignedHeaders=host&response-cache-control=private%2Cmax-age%3D600&response-content-disposition=attachment%3B%20filename%3D%22Screenshot%20from%202022-01-25%2016-07-09.png%22",
+            "expiresAt": "2022-01-27T09:01:50.767Z"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "status": "success",
+    "data": {
+        "object": "workspace",
+        "id": "6aceafe8-dd26-491b-84c6-7e38f5c3d1cc",
+        "teamId": "95e4c341-8202-4667-b2ae-84b4597f7c6d",
+        "name": "Projects",
+        "createdAt": "2022-01-26T16:32:41.777Z",
+        "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+        "childIds": [
+            "783ca63b-23c2-4d19-8e2b-cbe960e63eda",
+            "fd5ba79c-4c57-4044-b493-7418de916778",
+            "4f53904e-af80-4446-8203-648ff4820dcd",
+            "fd8eb415-8a0f-4727-a061-b85aa590ed25"
+        ]
+    }
+}

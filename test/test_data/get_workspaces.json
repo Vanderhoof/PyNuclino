@@ -1,0 +1,159 @@
+{
+    "status": "success",
+    "data": {
+        "object": "list",
+        "results": [
+            {
+                "object": "workspace",
+                "id": "2b896aee-9115-4895-be80-1d871a36416f",
+                "teamId": "95e4c341-8202-4667-b2ae-84b4597f7c6d",
+                "name": "Support",
+                "createdAt": "2022-01-26T16:32:41.777Z",
+                "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+                "childIds": [
+                    "d5bae988-fcb2-4c1d-ab7e-f93dd78e9ddc",
+                    "fffd82d7-6e33-418c-bddd-aa871767efd9",
+                    "0a2996d5-5db7-419c-8416-b14f97d27f0c",
+                    "f3c0b79c-b558-491d-8d72-12807ce3c525",
+                    "021c916e-3708-4862-85b4-89fc37e4fd32"
+                ]
+            },
+            {
+                "object": "workspace",
+                "id": "6aceafe8-dd26-491b-84c6-7e38f5c3d1cc",
+                "teamId": "95e4c341-8202-4667-b2ae-84b4597f7c6d",
+                "name": "Projects",
+                "createdAt": "2022-01-26T16:32:41.777Z",
+                "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+                "childIds": [
+                    "783ca63b-23c2-4d19-8e2b-cbe960e63eda",
+                    "fd5ba79c-4c57-4044-b493-7418de916778",
+                    "4f53904e-af80-4446-8203-648ff4820dcd",
+                    "fd8eb415-8a0f-4727-a061-b85aa590ed25"
+                ]
+            },
+            {
+                "object": "workspace",
+                "id": "979fedf4-8773-414d-add1-06c015e7ff0c",
+                "teamId": "a831fa72-b17b-4a7b-8f24-d7280358bd6d",
+                "name": "Company wiki",
+                "createdAt": "2022-01-26T17:21:01.628Z",
+                "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+                "childIds": [
+                    "d36fddd0-d9ba-448b-8612-45d5d69101a3",
+                    "ce7ccc70-ab08-4dba-85a9-9c2c58a33fb3",
+                    "e203e264-bf3f-4dbd-b7cc-34ebe5a44d53",
+                    "172d8feb-a4ed-4872-87a3-ec89315c8b75",
+                    "401a8926-4f44-40ed-b8f4-54dbfa05939d"
+                ]
+            },
+            {
+                "object": "workspace",
+                "id": "a257cfa6-c2f8-45b2-a4c7-b44d0f9ba8e5",
+                "teamId": "95e4c341-8202-4667-b2ae-84b4597f7c6d",
+                "name": "HR",
+                "createdAt": "2022-01-26T16:32:41.777Z",
+                "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+                "childIds": [
+                    "0a4f029a-c3bd-46b5-b76a-9a9ef0aadd21",
+                    "9f4058c3-e3e2-41f0-83af-42a6f6b42ed6",
+                    "ba8e4a6c-5878-4dcf-bad0-c81b883f9732",
+                    "cebd2515-ac88-4d87-a21c-b583b8906d65",
+                    "ad3596d8-79da-4ee2-abe5-f1516956a740",
+                    "c538fce3-7afb-4339-93d0-e2fc1fd06d4b"
+                ]
+            },
+            {
+                "object": "workspace",
+                "id": "b0686383-458b-4af4-b8dd-b464cc0395ed",
+                "teamId": "95e4c341-8202-4667-b2ae-84b4597f7c6d",
+                "name": "Product",
+                "createdAt": "2022-01-26T16:32:48.221Z",
+                "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+                "childIds": [
+                    "aeb3ca8e-f8d3-49dd-8ba2-3862727f35ae",
+                    "2405228c-49ed-4830-82e0-27e365a04037",
+                    "3a1010e8-c5b4-433d-8d58-6067666fa436",
+                    "a192a6df-065f-4462-9635-6acb2f27dcbf",
+                    "08665113-5385-469e-a967-1b80c5bde520"
+                ]
+            },
+            {
+                "object": "workspace",
+                "id": "bc3f2257-4981-4720-b0f6-7177288348f3",
+                "teamId": "a831fa72-b17b-4a7b-8f24-d7280358bd6d",
+                "name": "Support",
+                "createdAt": "2022-01-26T17:21:01.629Z",
+                "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+                "childIds": [
+                    "4f41cad4-e990-4540-ab69-ee23aebc1453",
+                    "579f5c9e-86b3-49e7-ba9f-5d6d245cf5be",
+                    "b9af47fc-b311-4705-a47d-a3be8946c395",
+                    "23809b14-7851-4563-89ca-2614908639a0",
+                    "48f8d4cc-f374-4d62-ab1f-3be87bcf3c86"
+                ]
+            },
+            {
+                "object": "workspace",
+                "id": "c077caf1-7364-4559-8c26-123f21e8f691",
+                "teamId": "a831fa72-b17b-4a7b-8f24-d7280358bd6d",
+                "name": "HR",
+                "createdAt": "2022-01-26T17:21:01.628Z",
+                "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+                "childIds": [
+                    "90fde739-0f3c-4842-a9e7-da5624cbf5e2",
+                    "d4182f2f-a840-4b56-b3d4-02db1ad7996c",
+                    "50689c7d-3e46-4a8c-aad2-d8aa6f3bde3b",
+                    "9a19418c-c4d4-4f8a-88e1-1736b11b7e02",
+                    "d6902235-2abe-487b-9f66-004d01b43dec",
+                    "f1dff651-396f-43dd-bba1-55e3db2dac86"
+                ]
+            },
+            {
+                "object": "workspace",
+                "id": "dfa5184d-47b1-4a5c-beb7-d3ff11be6b84",
+                "teamId": "95e4c341-8202-4667-b2ae-84b4597f7c6d",
+                "name": "Company wiki",
+                "createdAt": "2022-01-26T16:32:41.777Z",
+                "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+                "childIds": [
+                    "4e015b3e-5453-4146-8747-bf093dc105b4",
+                    "b78ce801-84f5-497b-9ccd-64033a0ef091",
+                    "a8f3f51d-7bcf-45df-9213-c070151b5f23",
+                    "834f80e5-400a-44a9-97e6-c318edff8a0a",
+                    "490cee3b-c30c-4cea-9891-8f5947eaa646"
+                ]
+            },
+            {
+                "object": "workspace",
+                "id": "e789c709-8dda-4fa7-a36c-fadd8349f0f5",
+                "teamId": "95e4c341-8202-4667-b2ae-84b4597f7c6d",
+                "name": "Game design",
+                "createdAt": "2022-01-26T16:32:43.488Z",
+                "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+                "childIds": [
+                    "42adc422-8586-41ee-b40e-f1560155b66f",
+                    "6986b0c1-19eb-411d-8297-ec925c9801d6",
+                    "eb0852bc-286a-4d4e-bbc3-ba63df50ca72",
+                    "0797631b-0153-46d4-8a7a-09c9f14b5a36",
+                    "46a5e674-f267-43ab-922a-c65189eef9c6"
+                ]
+            },
+            {
+                "object": "workspace",
+                "id": "e7c1e198-d301-4d89-9b32-7bc4d9e1ec3e",
+                "teamId": "95e4c341-8202-4667-b2ae-84b4597f7c6d",
+                "name": "Engineering",
+                "createdAt": "2022-01-26T16:32:41.777Z",
+                "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+                "childIds": [
+                    "88dc4c4e-9cb2-4997-9b43-e20de9c400d3",
+                    "8b6e082b-f3f3-4bf9-8b39-b4a3682c5559",
+                    "464af07e-6cef-45c3-84ee-02d9f6757264",
+                    "644173a4-1342-401a-ad5e-80df43b3e347",
+                    "11c1cfeb-4f6d-44b0-a724-4d2f47c0b973"
+                ]
+            }
+        ]
+    }
+}

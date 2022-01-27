@@ -1,0 +1,18 @@
+{
+    "status": "success",
+    "data": {
+        "object": "cluster",
+        "id": "23809b14-7851-4563-89ca-2614908639a0",
+        "workspaceId": "bc3f2257-4981-4720-b0f6-7177288348f3",
+        "url": "https://app.nuclino.com/t/b/23809b14-7851-4563-89ca-2614908639a0",
+        "title": "📝 Meeting notes",
+        "createdAt": "2022-01-26T17:21:02.114Z",
+        "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+        "lastUpdatedAt": "2022-01-26T17:21:02.114Z",
+        "lastUpdatedUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+        "childIds": [
+            "fe94a28d-6c5c-4969-9ee7-7d6433f74adf",
+            "abb2b1e0-df32-4f3e-9447-91f13341d5f2"
+        ]
+    }
+}

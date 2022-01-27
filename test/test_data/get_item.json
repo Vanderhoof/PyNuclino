@@ -1,0 +1,19 @@
+{
+    "status": "success",
+    "data": {
+        "object": "item",
+        "id": "48f8d4cc-f374-4d62-ab1f-3be87bcf3c86",
+        "workspaceId": "bc3f2257-4981-4720-b0f6-7177288348f3",
+        "url": "https://app.nuclino.com/t/b/48f8d4cc-f374-4d62-ab1f-3be87bcf3c86",
+        "title": "Welcome!",
+        "createdAt": "2022-01-26T17:21:02.678Z",
+        "createdUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+        "lastUpdatedAt": "2022-01-26T17:21:02.678Z",
+        "lastUpdatedUserId": "6d3fff4f-0954-4d20-83bc-005611589540",
+        "content": "> **💡 Nuclino Tip:** This [pinned](https://help.nuclino.com/87e7880f-pin-an-item \"Pin an item\") welcome page is the first page your team members will see when they join this workspace. This is a perfect opportunity to provide some guidance on what changed and where to find what.\n\n**Welcome to our Support workspace!** This is our source of truth for all Support-related information, such as the product FAQs, canned responses, best practices, and more.\n\n# What's new\n\n**Here are our latest updates!** If you have anything to share, please add it to the list and mention [@Support](https://help.nuclino.com/353324ea-use-groups \"Use groups\") to notify the team.\n\n- A new colleague is joining our [@Support](https://help.nuclino.com/353324ea-use-groups \"Use groups\") team on **January 27, 2021**. Please everyone say hi to [@Andre](https://help.nuclino.com/988f802d-mention-a-team-member \"Mention a team member\")! 👋\n- ...\n- ...\n- ...\n\n# Questions?\n\nJuan is the curator of this workspace. If you have a question or notice something that is incorrect or outdated, [leave a comment](https://help.nuclino.com/a6f815d8-comment-on-content \"Comment on content\") and mention [@Juan](https://help.nuclino.com/988f802d-mention-a-team-member \"Mention a team member\") to let him know.\n",
+        "contentMeta": {
+            "itemIds": [],
+            "fileIds": []
+        }
+    }
+}
