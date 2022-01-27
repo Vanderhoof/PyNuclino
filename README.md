@@ -1,6 +1,6 @@
 # PyNuclino
 
-PyNuclino is wrapper for [Nuclino API](https://help.nuclino.com/d3a29686-api).
+PyNuclino is Python client for [Nuclino API](https://help.nuclino.com/d3a29686-api).
 
 ## Installation
 
@@ -67,7 +67,7 @@ Full reference of methods and attributes is below.
 
 Nuclino API usage is currently [rate limited](https://help.nuclino.com/b147124e-rate-limiting) to 150 requests per minute. PyNuclino uses [ratelimit](https://github.com/tomasbasham/ratelimit) library to handle rate limiting.
 
-Default request limit is set to 140 req/min. To change it set the `requests_per_minute` init parameter:
+Default request limit is set to 140 req/min. To change it, set the `requests_per_minute` init parameter:
 
 ```python
 >>> client = Nuclino('your-api-key', requests_per_minute=100)
@@ -80,13 +80,13 @@ Default request limit is set to 140 req/min. To change it set the `requests_per_
 `Nuclino(api_key, base_url, requests_per_minute)`
 
 
-Nuclino is the main object that connects you to Nuclino api.
+Nuclino is the main object that connects you to Nuclino API.
 
 Initialization parameters:
 
 * `api_key` (string, required) — your personal API key ([how to get an API key](https://help.nuclino.com/04598850-manage-api-keys)).
 * `base_url` (string, optional) — base url for Nuclino API calls. Default: `https://api.nuclino.com/v0`.
-* `requests_per_minute` (int, optional) — number of requests the client will allow to send per minute. If this limit is exceeded, client will wait for some time before sending next request. Default: `140`.
+* `requests_per_minute` (int, optional) — number of requests the client will allow sending per minute. If this limit is exceeded, the client will wait for some time before sending the next request. Default: `140`.
 
 **Methods**
 
@@ -96,7 +96,7 @@ List teams that you have access to. Returns list of Team objects.
 
 `get_team(team_id)`
 
-Get a team by id. Returns a single Team object.
+Get a team by ID. Returns a single Team object.
 
 `get_workspaces(limit=None, after=None)`
 
@@ -104,7 +104,7 @@ List workspaces that you have access to. Returns list of Workspace objects.
 
 `get_workspace(team_id)`
 
-Get a workspace by id. Returns a single Workspace object.
+Get a workspace by ID. Returns a single Workspace object.
 
 `get_items(team_id=None, workspace_id=None, limit=None, after=None, search=None)`
 
@@ -144,17 +144,17 @@ Alias for `delete_item` method, works the same.
 
 `get_file(file_id)`
 
-Get a file by id. Returns a single File instance.
+Get a file by ID. Returns a single File instance.
 
 ### Team
 
 **Attributes**
 
-* `id` (str) — team id,
+* `id` (str) — team ID,
 * `url` (str) — team url,
 * `name` (str) — team name,
 * `created_at` (str) — date created in ISO 8601 format,
-* `created_user_id` (str) — id of the user who created this team.
+* `created_user_id` (str) — ID of the user who created this team.
 
 **Methods**
 
@@ -166,12 +166,12 @@ Make an API call to get list of workspaces this team has.
 
 **Attrubutes**
 
-* `id` (str) — workspace id,
-* `team_id` (str) — id of the team this workspace belongs to,
+* `id` (str) — workspace ID,
+* `team_id` (str) — ID of the team this workspace belongs to,
 * `name` (str) — workspace name,
 * `created_at` (str) — date created in ISO 8601 format,
-* `created_user_id` (str) — id of the user who created this workspace,
-* `child_ids` (list) — list of ids of top level items and clusters from this workspace.
+* `created_user_id` (str) — ID of the user who created this workspace,
+* `child_ids` (list) — list of IDs of top level items and clusters from this workspace.
 
 **Methods**
 
@@ -181,7 +181,7 @@ Make an API call to get the team this workspace belongs to.
 
 `get_children()`
 
-Make API calls to get a list of top level itesm and clusters from this workspace. Returns list of Item and Cluster objects.
+Make API calls to get a list of top level items and clusters from this workspace. Returns list of Item and Cluster objects.
 
 `create_item(object='item', title=None, content=None, index=None)`
 
@@ -195,15 +195,15 @@ Create a cluster in this workspace.
 
 **Attributes**
 
-* `id` (str) — cluster id,
-* `child_ids` (list) — list of ids of items or clusters that belong to this cluster (only top level),
+* `id` (str) — cluster ID,
+* `child_ids` (list) — list of IDs of items or clusters that belong to this cluster (only top level),
 * `created_at` (str) — date created in ISO 8601 format,
-* `created_user_id` (str) — id of the user who created the cluster,
+* `created_user_id` (str) — ID of the user who created the cluster,
 * `last_updated_at` (str) — date last update in ISO 8601 format,
-* `last_updated_user_id` (str) — id of the user who last updated the cluster,
+* `last_updated_user_id` (str) — ID of the user who last updated the cluster,
 * `title` (str) — cluster title,
 * `url` (str) — cluster url,
-* `workspace_id` (str) — id of the workspace this cluster belongs to.
+* `workspace_id` (str) — ID of the workspace this cluster belongs to.
 
 **Methods**
 
@@ -233,15 +233,15 @@ Update this cluster title.
 
 ### Item
 
-* `id` (str) — item id,
+* `id` (str) — item ID,
 * `content_meta` (dict) — item meta dictionary,
 * `created_at` (str) — date created in ISO 8601 format,
-* `created_user_id` (str) — id of the user who created the item,
+* `created_user_id` (str) — ID of the user who created the item,
 * `last_updated_at` (str) — date updated in ISO 8601 format,
-* `last_updated_user_id` (str) — id of the user who last updated the item,
+* `last_updated_user_id` (str) — ID of the user who last updated the item,
 * `title` (str) — item title,
 * `url` (str) — item url,
-* `workspace_id` (str) — id of the workspace this item belongs to,
+* `workspace_id` (str) — ID of the workspace this item belongs to,
 * `content` (str) — item content in Markdown (to get content use `get_item`, not `get_items`).
 
 **Methods**
@@ -264,17 +264,17 @@ Delete this item.
 
 `update(title: None, content: None)`
 
-Update this item. Title or content won't be changed if corresponding param is empty.
+Update this item. Title or content won't be changed if the corresponding param is empty.
 
 ### File
 
 **Attributes**
 
-* `id` (str) — file id,
-* `item_id` (str) — id of the item this file is attached to,
+* `id` (str) — file ID,
+* `item_id` (str) — ID of the item this file is attached to,
 * `file_name` (str) — file name,
 * `created_at` (str) — date created in ISO 8601 format,
-* `created_user_id` (str) — id of the user who created the file,
+* `created_user_id` (str) — ID of the user who created the file,
 * `download` (dict) — dictionary with download link and expiry date.
 
 **Methods**
