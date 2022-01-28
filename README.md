@@ -1,6 +1,8 @@
+[![](https://img.shields.io/pypi/v/pynuclino.svg)](https://pypi.org/project/pynuclino/) [![](https://img.shields.io/pypi/dm/pynuclino.svg)](https://pypi.org/project/pynuclino/)  [![](https://img.shields.io/github/v/tag/Vanderhoof/pynuclino.svg?label=GitHub)](https://github.com/Vanderhoof/PyNuclino)
+
 # PyNuclino
 
-PyNuclino is Python client for [Nuclino API](https://help.nuclino.com/d3a29686-api).
+PyNuclino is a Python client for [Nuclino API](https://help.nuclino.com/d3a29686-api).
 
 ## Installation
 

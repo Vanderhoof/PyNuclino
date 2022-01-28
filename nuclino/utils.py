@@ -9,6 +9,7 @@ def sleep_and_retry(quiet: bool = False):
         This is sleep_and_retry decorator from ratelimit library but with added
         printed message so that user is aware of the delay.
         '''
+
         @wraps(func)
         def wrapper(*args, **kargs):
             while True:

@@ -7,12 +7,7 @@ from typing import Union
 from ratelimit import limits
 from .utils import sleep_and_retry
 
-from .objects import Cluster
-from .objects import File
-from .objects import Item
 from .objects import NuclinoObject
-from .objects import Team
-from .objects import Workspace
 from .objects import get_loader
 
 
@@ -28,12 +23,22 @@ def join_url(base_url, path):
 
 
 class Client:
+    '''
+    Base class for Nuclino API client. May be used as a context processor.
+    '''
+
     def __init__(
         self,
         api_key: str,
         base_url: Optional[str] = BASE_URL,
         requests_per_minute: int = 140
     ):
+        '''
+        :param api_key:       your Nuclino API key.
+        :param base_url:      base url to send API requests.
+        :requests_per_minute: max requests per minute. If limit exceeded, client will wait
+                              for some time before processing the next request.
+        '''
         self.check_limit = sleep_and_retry()(
             limits(requests_per_minute, period=60)(lambda: None)
         )
@@ -51,7 +56,16 @@ class Client:
     def close(self):
         self.session.close()
 
-    def _process_response(self, response: requests.models.Response) -> Union[List, NuclinoObject]:
+    def _process_response(
+        self,
+        response: requests.models.Response
+    ) -> Union[List, NuclinoObject, dict]:
+        '''
+        General method that processes API responses. Raises error on HTTP
+        errors, sends results to parser on 200 ok.
+
+        :param response: response object, received after calling API.
+        '''
         content = response.json()
         if response.status_code != 200:
             message = content.get('message', '')
@@ -61,6 +75,15 @@ class Client:
             return self.parse(data)
 
     def parse(self, source: dict) -> Union[List, NuclinoObject, dict]:
+        '''
+        Parse successful response dictionary. This method will determine the
+        type of object, that was returned, and construct corresponding
+        NuclinoObject as the return result.
+
+        :param source: the "data" dictionary from Nuclino API response.
+        :returns:      corresponsing NuclinoObject constructed from `source`.
+        '''
+
         if 'object' not in source:
             return source
         func = get_loader(source['object'])
@@ -69,18 +92,20 @@ class Client:
             return result
         elif isinstance(result, list):
             return [self.parse(li) for li in result]
+        else:
+            return source
 
-    def get(self, path: str, params: dict = {}) -> Union[List, NuclinoObject]:
+    def get(self, path: str, params: dict = {}) -> Union[List, NuclinoObject, dict]:
         self.check_limit()
         response = self.session.get(join_url(self.base_url, path), params=params)
         return self._process_response(response)
 
-    def delete(self, path: str) -> dict:
+    def delete(self, path: str) -> Union[List, NuclinoObject, dict]:
         self.check_limit()
         response = self.session.delete(join_url(self.base_url, path))
         return self._process_response(response)
 
-    def post(self, path: str, data: dict) -> dict:
+    def post(self, path: str, data: dict) -> Union[List, NuclinoObject, dict]:
         headers = {'Content-Type': 'application/json'}
         self.check_limit()
         response = self.session.post(
@@ -90,7 +115,7 @@ class Client:
         )
         return self._process_response(response)
 
-    def put(self, path: str, data: dict) -> dict:
+    def put(self, path: str, data: dict) -> Union[List, NuclinoObject, dict]:
         headers = {'Content-Type': 'application/json'}
         self.check_limit()
         response = self.session.put(
@@ -106,7 +131,16 @@ class Nuclino(Client):
         self,
         limit: Optional[int] = None,
         after: Optional[str] = None
-    ) -> List[Team]:
+    ) -> Union[List, NuclinoObject, dict]:
+        '''
+        Get list of teams available for user.
+
+        :param limit: number between 1 and 100 to limit the results.
+        :param after: only return teams that come after the given team ID.
+
+        :returns: list of Team objects.
+        '''
+
         path = '/teams'
         params = {}
         if limit is not None:
@@ -116,6 +150,14 @@ class Nuclino(Client):
         return self.get(path, params)
 
     def get_team(self, team_id: str):
+        '''
+        Get specific team by ID.
+
+        :param team_id: ID of the team to get.
+
+        :returns: Team object.
+        '''
+
         path = f'/teams/{team_id}'
         return self.get(path)
 
@@ -124,7 +166,18 @@ class Nuclino(Client):
         team_id: Optional[str] = None,
         limit: Optional[int] = None,
         after: Optional[str] = None
-    ) -> List[Workspace]:
+    ) -> Union[List, NuclinoObject, dict]:
+        '''
+        Get list of workspaces available for user.
+
+        :param team_id: ID of the team the returned workspaces should belong to.
+        :param limit: number between 1 and 100 to limit the results.
+        :param after: only return workspaces that come after the given workspace
+                      ID.
+
+        :returns: list of Workspace objects.
+        '''
+
         path = '/workspaces'
         params = {}
         if team_id is not None:
@@ -135,7 +188,15 @@ class Nuclino(Client):
             params['after'] = after
         return self.get(path, params)
 
-    def get_workspace(self, workspace_id: str) -> Workspace:
+    def get_workspace(self, workspace_id: str) -> Union[List, NuclinoObject, dict]:
+        '''
+        Get specific workspace by ID.
+
+        :param workspace_id: ID of the workspace to get.
+
+        :returns: Workspace object.
+        '''
+
         path = f'/workspaces/{workspace_id}'
         return self.get(path)
 
@@ -146,7 +207,22 @@ class Nuclino(Client):
         limit: Optional[int] = None,
         after: Optional[str] = None,
         search: Optional[str] = None
-    ) -> List[Union[Item, Cluster]]:
+    ) -> Union[List, NuclinoObject, dict]:
+        '''
+        Get list of items and cluster from the team or the workspace. Either
+        `team_id` or `workspace_id` parameter is required. This method is also
+        used for item search, use `search` parameter.
+
+        :param team_id: ID of the team the returned items should belong to.
+        :param team_id: ID of the workspace the returned items should belong to.
+        :param limit:   number between 1 and 100 to limit the results.
+        :param after:   only return workspaces that come after the given workspace
+                        ID.
+        :param search:  search query.
+
+        :returns: list of Item and Cluster objects.
+        '''
+
         path = '/items'
         params = {}
         if team_id is not None:
@@ -161,11 +237,27 @@ class Nuclino(Client):
             params['search'] = search
         return self.get(path, params)
 
-    def get_item(self, item_id: str) -> Union[Item, Cluster]:
+    def get_item(self, item_id: str) -> Union[List, NuclinoObject, dict]:
+        '''
+        Get specific item or cluster by ID.
+
+        :param item_id: ID of the item to get.
+
+        :returns: Item or Cluster object.
+        '''
+
         path = f'/items/{item_id}'
         return self.get(path)
 
-    def get_cluster(self, cluster_id: str) -> Union[Item, Cluster]:
+    def get_cluster(self, cluster_id: str) -> Union[List, NuclinoObject, dict]:
+        '''
+        Alias for get_item. Get specific item or cluster by ID.
+
+        :param item_id: ID of the item to get.
+
+        :returns: Item or Cluster object.
+        '''
+
         return self.get_item(cluster_id)
 
     def create_item(
@@ -176,7 +268,23 @@ class Nuclino(Client):
         title: Optional[str] = None,
         content: Optional[str] = None,
         index: Optional[int] = None
-    ) -> Union[Item, Cluster]:
+    ) -> Union[List, NuclinoObject, dict]:
+        '''
+        Create a new item or cluster in the workspace or as a child of a
+        cluster. Either `workspace_id` or `parent_id` parameter is required.
+
+        :param workspace_id: ID of the workspace the item should be put in (will
+                             be placed at the root of the workspace).
+        :param parent_id:    ID of the cluster the item should be put in.
+        :param object:       'item' or 'cluster'.
+        :param title:        item or cluster title.
+        :param content:      item content (only for items).
+        :param index:        where to put this item in the tree. If not
+                             specified — will be put at the end.
+
+        :returns: the created Item or Cluster object.
+        '''
+
         path = f'/items'
         data = {'object': object}
         if workspace_id is not None:
@@ -197,7 +305,21 @@ class Nuclino(Client):
         parent_id: Optional[str] = None,
         title: Optional[str] = None,
         index: Optional[int] = None
-    ) -> Union[Item, Cluster]:
+    ) -> Union[List, NuclinoObject, dict]:
+        '''
+        Create a cluster in the workspace or as a child of another cluster.
+        Either `workspace_id` or `parent_id` parameter is required.
+
+        :param workspace_id: ID of the workspace the cluster should be put in
+                             (will be placed at the root of the workspace).
+        :param parent_id:    ID of the cluster this cluster should be put in.
+        :param title:        cluster title.
+        :param index:        where to put this cluster in the tree. If not
+                             specified — will be put at the end.
+
+        :returns: the created Cluster object.
+        '''
+
         return self.create_item(
             workspace_id=workspace_id,
             parent_id=parent_id,
@@ -212,7 +334,18 @@ class Nuclino(Client):
         item_id: str,
         title: Optional[str] = None,
         content: Optional[str] = None
-    ) -> Union[Item, Cluster]:
+    ) -> Union[List, NuclinoObject, dict]:
+        '''
+        Update item or cluster.
+
+        :param item_id: ID of the item to update.
+        :param title:   new item title. If not specified — won't be changed.
+        :param content: new item content (only for items). If not specified —
+                        won't be changed.
+
+        :returns: updated Item or Cluster object.
+        '''
+
         path = f'/items/{item_id}'
         data = {}
         if title is not None:
@@ -225,16 +358,49 @@ class Nuclino(Client):
         self,
         cluster_id: str,
         title: Optional[str] = None
-    ) -> Union[Item, Cluster]:
+    ) -> Union[List, NuclinoObject, dict]:
+        '''
+        Update cluster title.
+
+        :param cluster_id: ID of the cluster to update.
+        :param title:      new cluster title. If not specified — won't be
+                           changed.
+
+        :returns: updated Cluster object.
+        '''
+
         return self.update_item(cluster_id, title=title, content=None)
 
-    def delete_item(self, item_id: str) -> dict:
+    def delete_item(self, item_id: str) -> Union[List, NuclinoObject, dict]:
+        '''
+        Move item or cluster to trash.
+
+        :param item_id: ID of the item to delete.
+
+        :returns: a dictionary with ID of deleted item.
+        '''
         path = f'/items/{item_id}'
         return self.delete(path)
 
-    def delete_cluster(self, cluster_id: str) -> dict:
+    def delete_cluster(self, cluster_id: str) -> Union[List, NuclinoObject, dict]:
+        '''
+        Alias for delete_item. Move item or cluster to trash.
+
+        :param item_id: ID of the item to delete.
+
+        :returns: a dictionary with ID of deleted item.
+        '''
+
         return self.delete_item(cluster_id)
 
-    def get_file(self, file_id: str) -> File:
+    def get_file(self, file_id: str) -> Union[List, NuclinoObject, dict]:
+        '''
+        Get a file object by ID.
+
+        :param item_id: ID of the file to get.
+
+        :returns: a File object.
+        '''
+
         path = f'/files/{file_id}'
         return self.get(path)
