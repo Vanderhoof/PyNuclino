@@ -26,6 +26,7 @@ setup(
     platforms='any',
     install_requires=[
         'ratelimit',
+        'requests',
     ],
     classifiers=[
         "Development Status :: 4 - Beta",
