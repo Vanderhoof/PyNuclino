@@ -27,7 +27,7 @@ Get some data:
 >>> client.get_teams()
 [<Team "MyTeam">, <Team "TheirTeam">]
 >>> client.get_items(team_id='your_team_id')
-[<Item "Home office allowance">, <Cluster "Leave">, <Item "Welcome!">, ...]
+[<Item "Home office allowance">, <Collection "Leave">, <Item "Welcome!">, ...]
 ```
 
 Objects have attributes:
@@ -48,7 +48,7 @@ Objects also have convenience methods:
 >>> team.get_workspaces()
 [<Workspace "Support">, <Workspace "Projects">, ...]
 >>> workspace.get_children()
-[<Cluster "Product FAQ">, <Cluster "Canned responses">, ...]
+[<Collection "Product FAQ">, <Collection "Canned responses">, ...]
 >>> item.get_files()
 [<file "6e54474a.png">, <file "c414f936.png">, ...]
 ```
@@ -110,37 +110,37 @@ Get a workspace by ID. Returns a single Workspace object.
 
 `get_items(team_id=None, workspace_id=None, limit=None, after=None, search=None)`
 
-Get list of items in team or workspace. You must supply either `team_id` or `workspace_id`. Add search query in `search` parameter to search items. Returns list of Item and Cluster objects.
+Get list of items in team or workspace. You must supply either `team_id` or `workspace_id`. Add search query in `search` parameter to search items. Returns list of Item and Collection objects.
 
 `get_item(item_id)`
 
-Get item or cluster by ID. Returns a single Item or Cluster object.
+Get item or collection by ID. Returns a single Item or Collection object.
 
-`get_cluster(cluster_id)`
+`get_collection(collection_id)`
 
 Alias for `get_item` method, works the same.
 
 `create_item(workspace_id=None, parent_id=None, object='item', title=None, content=None, index=None)`
 
-Create a new item or cluster (depending on the `object` param value). You must supply either `workspace_id` or `parent_id`.
+Create a new item or collection (depending on the `object` param value). You must supply either `workspace_id` or `parent_id`.
 
-`create_cluster(workspace_id=None, parent_id=None, title=None, index=None)`
+`create_collection(workspace_id=None, parent_id=None, title=None, index=None)`
 
-Create a new cluster. You must supply either `workspace_id` or `parent_id`.
+Create a new collection. You must supply either `workspace_id` or `parent_id`.
 
 `update_item(item_id, title=None, content=None)`
 
-Update item or cluster. If `title` or `content` is none, it won't be changed.
+Update item or collection. If `title` or `content` is none, it won't be changed.
 
-`update_cluster(cluster_id, title=None)`
+`update_collection(collection_id, title=None)`
 
-Update cluster title.
+Update collection title.
 
 `delete_title(item_id)`
 
-Delete item or cluster.
+Delete item or collection.
 
-`delete_cluster(cluster_id)`
+`delete_collection(collection_id)`
 
 Alias for `delete_item` method, works the same.
 
@@ -173,7 +173,7 @@ Make an API call to get list of workspaces this team has.
 * `name` (str) — workspace name,
 * `created_at` (str) — date created in ISO 8601 format,
 * `created_user_id` (str) — ID of the user who created this workspace,
-* `child_ids` (list) — list of IDs of top level items and clusters from this workspace.
+* `child_ids` (list) — list of IDs of top level items and collections from this workspace.
 
 **Methods**
 
@@ -183,55 +183,55 @@ Make an API call to get the team this workspace belongs to.
 
 `get_children()`
 
-Make API calls to get a list of top level items and clusters from this workspace. Returns list of Item and Cluster objects.
+Make API calls to get a list of top level items and collections from this workspace. Returns list of Item and Collection objects.
 
 `create_item(object='item', title=None, content=None, index=None)`
 
-Create an item or a cluster (depending on the `object` param) in this workspace.
+Create an item or a collection (depending on the `object` param) in this workspace.
 
-`create_cluster(title=None, index=None)`
+`create_collection(title=None, index=None)`
 
-Create a cluster in this workspace.
+Create a collection in this workspace.
 
-### Cluster
+### Collection
 
 **Attributes**
 
-* `id` (str) — cluster ID,
-* `child_ids` (list) — list of IDs of items or clusters that belong to this cluster (only top level),
+* `id` (str) — collection ID,
+* `child_ids` (list) — list of IDs of items or collections that belong to this collection (only top level),
 * `created_at` (str) — date created in ISO 8601 format,
-* `created_user_id` (str) — ID of the user who created the cluster,
+* `created_user_id` (str) — ID of the user who created the collection,
 * `last_updated_at` (str) — date last update in ISO 8601 format,
-* `last_updated_user_id` (str) — ID of the user who last updated the cluster,
-* `title` (str) — cluster title,
-* `url` (str) — cluster url,
-* `workspace_id` (str) — ID of the workspace this cluster belongs to.
+* `last_updated_user_id` (str) — ID of the user who last updated the collection,
+* `title` (str) — collection title,
+* `url` (str) — collection url,
+* `workspace_id` (str) — ID of the workspace this collection belongs to.
 
 **Methods**
 
 `get_children()`
 
-Make API calls to get list of items and clusters that belong to this cluster (only top level). Returns list of Item and Cluster objects.
+Make API calls to get list of items and collections that belong to this collection (only top level). Returns list of Item and Collection objects.
 
 `get_workspace()`
 
-Make an API call to get the workspace this cluster belongs to.
+Make an API call to get the workspace this collection belongs to.
 
 `create_item(object='item', title=None, content=None, index=None)`
 
-Create an item or a cluster (depending on the `object` param) under this cluster.
+Create an item or a collection (depending on the `object` param) under this collection.
 
-`create_cluster(title=None, index=None)`
+`create_collection(title=None, index=None)`
 
-Create a cluster under this cluster.
+Create a collection under this collection.
 
 `delete()`
 
-Delete this cluster.
+Delete this collection.
 
 `update(title)`
 
-Update this cluster title.
+Update this collection title.
 
 ### Item
 
