@@ -73,7 +73,7 @@ class Workspace(NuclinoObject):
 
         return self.nuclino.get_team(self.team_id)
 
-    def get_children(self) -> List[Union[Item, Cluster]]:
+    def get_children(self) -> List[Union[Item, Collection]]:
         return [self.nuclino.get_item(id_) for id_ in self.child_ids]
 
     def create_item(
@@ -82,17 +82,17 @@ class Workspace(NuclinoObject):
         title: Optional[str] = None,
         content: Optional[str] = None,
         index: Optional[int] = None
-    ) -> Union[Item, Cluster]:
+    ) -> Union[Item, Collection]:
         '''
-        Create a new item or cluster under this workspace.
+        Create a new item or collection under this workspace.
 
-        :param object:  'item' or 'cluster'.
+        :param object:  'item' or 'collection'.
         :param title':  item title.
         :param content: item content (only for items).
         :param index:   where to put this item in the tree. If not
                         specified — will be put at the end.
 
-        :returns: Item or Cluster object.
+        :returns: Item or Collection object.
         '''
 
         return self.nuclino.create_item(
@@ -103,24 +103,24 @@ class Workspace(NuclinoObject):
             index=index
         )
 
-    def create_cluster(
+    def create_collection(
         self,
         title: Optional[str] = None,
         index: Optional[int] = None
-    ) -> Union[Item, Cluster]:
+    ) -> Union[Item, Collection]:
         '''
-        Create a new cluster under this workspace.
+        Create a new collection under this workspace.
 
-        :param title':  cluster title.
-        :param index:   where to put this cluster in the tree. If not
+        :param title':  collection title.
+        :param index:   where to put this collection in the tree. If not
                         specified — will be put at the end.
 
-        :returns: Cluster object.
+        :returns: Collection object.
         '''
 
         return self.nuclino.create_item(
             workspace_id=self.id,
-            object="cluster",
+            object="collection",
             title=title,
             content=None,
             index=index
@@ -130,8 +130,8 @@ class Workspace(NuclinoObject):
         return f'<Workspace "{self.name}">'
 
 
-class Cluster(NuclinoObject):
-    _object = "cluster"
+class Collection(NuclinoObject):
+    _object = "collection"
 
     def __init__(
         self,
@@ -150,18 +150,18 @@ class Cluster(NuclinoObject):
         self.url = props['url']
         self.workspace_id = props['workspaceId']
 
-    def get_children(self) -> List[Union[Item, Cluster]]:
+    def get_children(self) -> List[Union[Item, Collection]]:
         '''
-        Make an API call to get the list of direct children of this cluster.
+        Make an API call to get the list of direct children of this collection.
 
-        :returns: list of Item and Cluster objects.
+        :returns: list of Item and Collection objects.
         '''
 
         return [self.nuclino.get_item(id_) for id_ in self.child_ids]
 
     def get_workspace(self) -> Workspace:
         '''
-        Make an API call to get the workspace this cluster belongs to.
+        Make an API call to get the workspace this collection belongs to.
 
         :returns: Workspace object.
         '''
@@ -174,17 +174,17 @@ class Cluster(NuclinoObject):
         title: Optional[str] = None,
         content: Optional[str] = None,
         index: Optional[int] = None
-    ) -> Union[Item, Cluster]:
+    ) -> Union[Item, Collection]:
         '''
-        Create an item or a cluster under this cluster.
+        Create an item or a collection under this collection.
 
-        :param object:  'item' or 'cluster'.
+        :param object:  'item' or 'collection'.
         :param title:   item title.
         :param content: item content.
         :param index:   where to put this item in the tree. If not
                         specified — will be put at the end.
 
-        :returns: created Item or Cluster object.
+        :returns: created Item or Collection object.
         '''
 
         return self.nuclino.create_item(
@@ -195,54 +195,54 @@ class Cluster(NuclinoObject):
             index=index
         )
 
-    def create_cluster(
+    def create_collection(
         self,
         title: Optional[str] = None,
         content: Optional[str] = None,
         index: Optional[int] = None
-    ) -> Union[Item, Cluster]:
+    ) -> Union[Item, Collection]:
         '''
-        Create another cluster under this cluster.
+        Create another collection under this collection.
 
-        :param title:   cluster title.
-        :param index:   where to put this cluster in the tree. If not
+        :param title:   collection title.
+        :param index:   where to put this collection in the tree. If not
                         specified — will be put at the end.
 
-        :returns: created Cluster object.
+        :returns: created Collection object.
         '''
 
         return self.nuclino.create_item(
             parent_id=self.id,
-            object="cluster",
+            object="collection",
             title=title,
             index=index
         )
 
     def delete(self) -> dict:
         '''
-        Move this cluster to trash.
+        Move this collection to trash.
 
-        :returns: dictionary with this cluster ID.
+        :returns: dictionary with this collection ID.
         '''
 
-        return self.nuclino.delete_cluster(self.id)
+        return self.nuclino.delete_collection(self.id)
 
     def update(
         self,
         title: Optional[str] = None
     ):
         '''
-        Change this cluster title.
+        Change this collection title.
 
         :param title: new title value.
 
-        :returns: updated Cluster object.
+        :returns: updated Collection object.
         '''
 
-        return self.nuclino.update_cluster(self.id, title)
+        return self.nuclino.update_collection(self.id, title)
 
     def __repr__(self) -> str:
-        return f'<Cluster "{self.title}">'
+        return f'<Collection "{self.title}">'
 
 
 class Item(NuclinoObject):
@@ -275,12 +275,12 @@ class Item(NuclinoObject):
 
         return self.nuclino.get_workspace(self.workspace_id)
 
-    def get_items(self) -> List[Union[Item, Cluster]]:
+    def get_items(self) -> List[Union[Item, Collection]]:
         '''
-        Make API calls to get list of items or clusters that are referenced in
+        Make API calls to get list of items or collections that are referenced in
         this item.
 
-        :returns: list of Item or Cluster objects.
+        :returns: list of Item or Collection objects.
         '''
 
         return [self.nuclino.get_item(id_) for id_ in self.content_meta['itemIds']]

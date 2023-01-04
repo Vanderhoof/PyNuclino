@@ -85,16 +85,16 @@ class TestParse(TestCase):
         self.assertIsInstance(result, objects.Item)
 
     def test_cluster(self):
-        data = open_data_file('get_cluster.json')
+        data = open_data_file('get_collection.json')
         result = self.client.parse(data['data'])
-        self.assertIsInstance(result, objects.Cluster)
+        self.assertIsInstance(result, objects.Collection)
 
     def test_items(self):
         data = open_data_file('get_items.json')
         result = self.client.parse(data['data'])
         self.assertIsInstance(result, list)
         for t in result:
-            self.assertIsInstance(t, (objects.Item, objects.Cluster))
+            self.assertIsInstance(t, (objects.Item, objects.Collection))
 
     def test_file(self):
         data = open_data_file('get_file.json')

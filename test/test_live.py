@@ -83,14 +83,14 @@ class TestItems(TestCaseWithKey):
         workspace_id = workspaces[0].id
         result = self.client.get_items(workspace_id=workspace_id)  # 1req
         for i in result:
-            self.assertIsInstance(i, (objects.Item, objects.Cluster))
+            self.assertIsInstance(i, (objects.Item, objects.Collection))
 
     def test_by_team(self):
         teams = self.client.get_teams()
         team_id = teams[0].id
         result = self.client.get_items(team_id=team_id)  # 1req
         for i in result:
-            self.assertIsInstance(i, (objects.Item, objects.Cluster))
+            self.assertIsInstance(i, (objects.Item, objects.Collection))
 
     def test_limit(self):
         workspaces = self.client.get_workspaces()
@@ -122,7 +122,7 @@ class TestItems(TestCaseWithKey):
         team_id = teams[0].id
         items = self.client.get_items(team_id=team_id)  # 1req
         result = self.client.get_item(items[0].id)
-        self.assertIsInstance(result, (objects.Item, objects.Cluster))
+        self.assertIsInstance(result, (objects.Item, objects.Collection))
 
 
 class TestModifyItems(TestCaseWithKey):
@@ -141,22 +141,22 @@ class TestModifyItems(TestCaseWithKey):
     def test_create_child(self):
         workspaces = self.client.get_workspaces()  # 1req
         workspace_id = workspaces[0].id
-        cluster = self.client.create_item(
+        collection = self.client.create_item(
             workspace_id=workspace_id,
-            object='cluster',
-            title='Test Cluster',
+            object='collection',
+            title='Test Collection',
         )  # 1req
-        self.assertIsInstance(cluster, objects.Cluster)
+        self.assertIsInstance(collection, objects.Collection)
 
         item = self.client.create_item(
-            parent_id=cluster.id,
+            parent_id=collection.id,
             object='item',
             title='Test Title',
             content='Test content\n'
         )  # 1req
         self.assertIsInstance(item, objects.Item)
         item.delete()  # 1req
-        cluster.delete()  # 1req
+        collection.delete()  # 1req
 
     def test_update_item(self):
         workspaces = self.client.get_workspaces()  # 1req

@@ -209,7 +209,7 @@ class Nuclino(Client):
         search: Optional[str] = None
     ) -> Union[List, NuclinoObject, dict]:
         '''
-        Get list of items and cluster from the team or the workspace. Either
+        Get list of items and collection from the team or the workspace. Either
         `team_id` or `workspace_id` parameter is required. This method is also
         used for item search, use `search` parameter.
 
@@ -220,7 +220,7 @@ class Nuclino(Client):
                         ID.
         :param search:  search query.
 
-        :returns: list of Item and Cluster objects.
+        :returns: list of Item and Collection objects.
         '''
 
         path = '/items'
@@ -239,26 +239,26 @@ class Nuclino(Client):
 
     def get_item(self, item_id: str) -> Union[List, NuclinoObject, dict]:
         '''
-        Get specific item or cluster by ID.
+        Get specific item or collection by ID.
 
         :param item_id: ID of the item to get.
 
-        :returns: Item or Cluster object.
+        :returns: Item or Collection object.
         '''
 
         path = f'/items/{item_id}'
         return self.get(path)
 
-    def get_cluster(self, cluster_id: str) -> Union[List, NuclinoObject, dict]:
+    def get_collection(self, collection_id: str) -> Union[List, NuclinoObject, dict]:
         '''
-        Alias for get_item. Get specific item or cluster by ID.
+        Alias for get_item. Get specific item or collection by ID.
 
         :param item_id: ID of the item to get.
 
-        :returns: Item or Cluster object.
+        :returns: Item or Collection object.
         '''
 
-        return self.get_item(cluster_id)
+        return self.get_item(collection_id)
 
     def create_item(
         self,
@@ -270,19 +270,19 @@ class Nuclino(Client):
         index: Optional[int] = None
     ) -> Union[List, NuclinoObject, dict]:
         '''
-        Create a new item or cluster in the workspace or as a child of a
-        cluster. Either `workspace_id` or `parent_id` parameter is required.
+        Create a new item or collection in the workspace or as a child of a
+        collection. Either `workspace_id` or `parent_id` parameter is required.
 
         :param workspace_id: ID of the workspace the item should be put in (will
                              be placed at the root of the workspace).
-        :param parent_id:    ID of the cluster the item should be put in.
-        :param object:       'item' or 'cluster'.
-        :param title:        item or cluster title.
+        :param parent_id:    ID of the collection the item should be put in.
+        :param object:       'item' or 'collection'.
+        :param title:        item or collection title.
         :param content:      item content (only for items).
         :param index:        where to put this item in the tree. If not
                              specified — will be put at the end.
 
-        :returns: the created Item or Cluster object.
+        :returns: the created Item or Collection object.
         '''
 
         path = f'/items'
@@ -299,7 +299,7 @@ class Nuclino(Client):
             data['index'] = str(index)
         return self.post(path, data)
 
-    def create_cluster(
+    def create_collection(
         self,
         workspace_id: Optional[str] = None,
         parent_id: Optional[str] = None,
@@ -307,23 +307,23 @@ class Nuclino(Client):
         index: Optional[int] = None
     ) -> Union[List, NuclinoObject, dict]:
         '''
-        Create a cluster in the workspace or as a child of another cluster.
+        Create a collection in the workspace or as a child of another collection.
         Either `workspace_id` or `parent_id` parameter is required.
 
-        :param workspace_id: ID of the workspace the cluster should be put in
+        :param workspace_id: ID of the workspace the collection should be put in
                              (will be placed at the root of the workspace).
-        :param parent_id:    ID of the cluster this cluster should be put in.
-        :param title:        cluster title.
-        :param index:        where to put this cluster in the tree. If not
+        :param parent_id:    ID of the collection this collection should be put in.
+        :param title:        collection title.
+        :param index:        where to put this collection in the tree. If not
                              specified — will be put at the end.
 
-        :returns: the created Cluster object.
+        :returns: the created Collection object.
         '''
 
         return self.create_item(
             workspace_id=workspace_id,
             parent_id=parent_id,
-            object='cluster',
+            object='collection',
             title=title,
             content=None,
             index=index
@@ -336,14 +336,14 @@ class Nuclino(Client):
         content: Optional[str] = None
     ) -> Union[List, NuclinoObject, dict]:
         '''
-        Update item or cluster.
+        Update item or collection.
 
         :param item_id: ID of the item to update.
         :param title:   new item title. If not specified — won't be changed.
         :param content: new item content (only for items). If not specified —
                         won't be changed.
 
-        :returns: updated Item or Cluster object.
+        :returns: updated Item or Collection object.
         '''
 
         path = f'/items/{item_id}'
@@ -354,26 +354,26 @@ class Nuclino(Client):
             data['content'] = content
         return self.put(path, data=data)
 
-    def update_cluster(
+    def update_collection(
         self,
-        cluster_id: str,
+        collection_id: str,
         title: Optional[str] = None
     ) -> Union[List, NuclinoObject, dict]:
         '''
-        Update cluster title.
+        Update collection title.
 
-        :param cluster_id: ID of the cluster to update.
-        :param title:      new cluster title. If not specified — won't be
+        :param collection_id: ID of the collection to update.
+        :param title:      new collection title. If not specified — won't be
                            changed.
 
-        :returns: updated Cluster object.
+        :returns: updated Collection object.
         '''
 
-        return self.update_item(cluster_id, title=title, content=None)
+        return self.update_item(collection_id, title=title, content=None)
 
     def delete_item(self, item_id: str) -> Union[List, NuclinoObject, dict]:
         '''
-        Move item or cluster to trash.
+        Move item or collection to trash.
 
         :param item_id: ID of the item to delete.
 
@@ -382,16 +382,16 @@ class Nuclino(Client):
         path = f'/items/{item_id}'
         return self.delete(path)
 
-    def delete_cluster(self, cluster_id: str) -> Union[List, NuclinoObject, dict]:
+    def delete_collection(self, collection_id: str) -> Union[List, NuclinoObject, dict]:
         '''
-        Alias for delete_item. Move item or cluster to trash.
+        Alias for delete_item. Move item or collection to trash.
 
         :param item_id: ID of the item to delete.
 
         :returns: a dictionary with ID of deleted item.
         '''
 
-        return self.delete_item(cluster_id)
+        return self.delete_item(collection_id)
 
     def get_file(self, file_id: str) -> Union[List, NuclinoObject, dict]:
         '''

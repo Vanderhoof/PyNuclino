@@ -1,7 +1,7 @@
 {
     "status": "success",
     "data": {
-        "object": "cluster",
+        "object": "collection",
         "id": "23809b14-7851-4563-89ca-2614908639a0",
         "workspaceId": "bc3f2257-4981-4720-b0f6-7177288348f3",
         "url": "https://app.nuclino.com/t/b/23809b14-7851-4563-89ca-2614908639a0",

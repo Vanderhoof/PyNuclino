@@ -4,7 +4,7 @@
         "object": "list",
         "results": [
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "172d8feb-a4ed-4872-87a3-ec89315c8b75",
                 "workspaceId": "979fedf4-8773-414d-add1-06c015e7ff0c",
                 "url": "https://app.nuclino.com/t/b/172d8feb-a4ed-4872-87a3-ec89315c8b75",
@@ -20,7 +20,7 @@
                 ]
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "23809b14-7851-4563-89ca-2614908639a0",
                 "workspaceId": "bc3f2257-4981-4720-b0f6-7177288348f3",
                 "url": "https://app.nuclino.com/t/b/23809b14-7851-4563-89ca-2614908639a0",
@@ -247,7 +247,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "4f41cad4-e990-4540-ab69-ee23aebc1453",
                 "workspaceId": "bc3f2257-4981-4720-b0f6-7177288348f3",
                 "url": "https://app.nuclino.com/t/b/4f41cad4-e990-4540-ab69-ee23aebc1453",
@@ -263,7 +263,7 @@
                 ]
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "50689c7d-3e46-4a8c-aad2-d8aa6f3bde3b",
                 "workspaceId": "c077caf1-7364-4559-8c26-123f21e8f691",
                 "url": "https://app.nuclino.com/t/b/50689c7d-3e46-4a8c-aad2-d8aa6f3bde3b",
@@ -337,7 +337,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "579f5c9e-86b3-49e7-ba9f-5d6d245cf5be",
                 "workspaceId": "bc3f2257-4981-4720-b0f6-7177288348f3",
                 "url": "https://app.nuclino.com/t/b/579f5c9e-86b3-49e7-ba9f-5d6d245cf5be",
@@ -352,7 +352,7 @@
                 ]
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "59c3be25-47bf-414e-81c8-b5d98bcfe758",
                 "workspaceId": "c077caf1-7364-4559-8c26-123f21e8f691",
                 "url": "https://app.nuclino.com/t/b/59c3be25-47bf-414e-81c8-b5d98bcfe758",
@@ -379,7 +379,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "64a9fb72-e468-4f58-8143-9b4ab5e9a905",
                 "workspaceId": "bc3f2257-4981-4720-b0f6-7177288348f3",
                 "url": "https://app.nuclino.com/t/b/64a9fb72-e468-4f58-8143-9b4ab5e9a905",
@@ -461,7 +461,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "6b874adf-8720-4da3-ba1e-2842222f94b7",
                 "workspaceId": "c077caf1-7364-4559-8c26-123f21e8f691",
                 "url": "https://app.nuclino.com/t/b/6b874adf-8720-4da3-ba1e-2842222f94b7",
@@ -525,7 +525,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "87b6cbd7-175e-4317-9b13-2ba0dc9a490a",
                 "workspaceId": "c077caf1-7364-4559-8c26-123f21e8f691",
                 "url": "https://app.nuclino.com/t/b/87b6cbd7-175e-4317-9b13-2ba0dc9a490a",
@@ -556,7 +556,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "90fde739-0f3c-4842-a9e7-da5624cbf5e2",
                 "workspaceId": "c077caf1-7364-4559-8c26-123f21e8f691",
                 "url": "https://app.nuclino.com/t/b/90fde739-0f3c-4842-a9e7-da5624cbf5e2",
@@ -602,7 +602,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "9a19418c-c4d4-4f8a-88e1-1736b11b7e02",
                 "workspaceId": "c077caf1-7364-4559-8c26-123f21e8f691",
                 "url": "https://app.nuclino.com/t/b/9a19418c-c4d4-4f8a-88e1-1736b11b7e02",
@@ -712,7 +712,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "b00c9ca9-8d19-4be5-937b-3b13632c7bdc",
                 "workspaceId": "bc3f2257-4981-4720-b0f6-7177288348f3",
                 "url": "https://app.nuclino.com/t/b/b00c9ca9-8d19-4be5-937b-3b13632c7bdc",
@@ -728,7 +728,7 @@
                 ]
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "b20ed3a2-a670-444e-9c76-60274a55bb16",
                 "workspaceId": "c077caf1-7364-4559-8c26-123f21e8f691",
                 "url": "https://app.nuclino.com/t/b/b20ed3a2-a670-444e-9c76-60274a55bb16",
@@ -755,7 +755,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "b61b0f50-99b7-45c1-9f80-6a5505002d80",
                 "workspaceId": "979fedf4-8773-414d-add1-06c015e7ff0c",
                 "url": "https://app.nuclino.com/t/b/b61b0f50-99b7-45c1-9f80-6a5505002d80",
@@ -785,7 +785,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "b9af47fc-b311-4705-a47d-a3be8946c395",
                 "workspaceId": "bc3f2257-4981-4720-b0f6-7177288348f3",
                 "url": "https://app.nuclino.com/t/b/b9af47fc-b311-4705-a47d-a3be8946c395",
@@ -847,7 +847,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "ce7ccc70-ab08-4dba-85a9-9c2c58a33fb3",
                 "workspaceId": "979fedf4-8773-414d-add1-06c015e7ff0c",
                 "url": "https://app.nuclino.com/t/b/ce7ccc70-ab08-4dba-85a9-9c2c58a33fb3",
@@ -910,7 +910,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "d36fddd0-d9ba-448b-8612-45d5d69101a3",
                 "workspaceId": "979fedf4-8773-414d-add1-06c015e7ff0c",
                 "url": "https://app.nuclino.com/t/b/d36fddd0-d9ba-448b-8612-45d5d69101a3",
@@ -944,7 +944,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "d6902235-2abe-487b-9f66-004d01b43dec",
                 "workspaceId": "c077caf1-7364-4559-8c26-123f21e8f691",
                 "url": "https://app.nuclino.com/t/b/d6902235-2abe-487b-9f66-004d01b43dec",
@@ -989,7 +989,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "dc519563-25c0-4a46-8310-181c031d2b7b",
                 "workspaceId": "c077caf1-7364-4559-8c26-123f21e8f691",
                 "url": "https://app.nuclino.com/t/b/dc519563-25c0-4a46-8310-181c031d2b7b",
@@ -1005,7 +1005,7 @@
                 ]
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "e1135841-c02a-4c79-b779-b2536d8e4118",
                 "workspaceId": "979fedf4-8773-414d-add1-06c015e7ff0c",
                 "url": "https://app.nuclino.com/t/b/e1135841-c02a-4c79-b779-b2536d8e4118",
@@ -1021,7 +1021,7 @@
                 ]
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "e203e264-bf3f-4dbd-b7cc-34ebe5a44d53",
                 "workspaceId": "979fedf4-8773-414d-add1-06c015e7ff0c",
                 "url": "https://app.nuclino.com/t/b/e203e264-bf3f-4dbd-b7cc-34ebe5a44d53",
@@ -1051,7 +1051,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "e7029b53-90ea-4724-89eb-ff136370350a",
                 "workspaceId": "979fedf4-8773-414d-add1-06c015e7ff0c",
                 "url": "https://app.nuclino.com/t/b/e7029b53-90ea-4724-89eb-ff136370350a",
@@ -1081,7 +1081,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "eec2c824-31bd-45d3-bb8d-a16c650bfa7e",
                 "workspaceId": "bc3f2257-4981-4720-b0f6-7177288348f3",
                 "url": "https://app.nuclino.com/t/b/eec2c824-31bd-45d3-bb8d-a16c650bfa7e",
@@ -1111,7 +1111,7 @@
                 }
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "f1dff651-396f-43dd-bba1-55e3db2dac86",
                 "workspaceId": "c077caf1-7364-4559-8c26-123f21e8f691",
                 "url": "https://app.nuclino.com/t/b/f1dff651-396f-43dd-bba1-55e3db2dac86",
@@ -1126,7 +1126,7 @@
                 ]
             },
             {
-                "object": "cluster",
+                "object": "collection",
                 "id": "fdc3d5ec-acda-409f-a68f-c1405fba8bfc",
                 "workspaceId": "c077caf1-7364-4559-8c26-123f21e8f691",
                 "url": "https://app.nuclino.com/t/b/fdc3d5ec-acda-409f-a68f-c1405fba8bfc",
