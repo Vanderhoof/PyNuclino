@@ -4,6 +4,6 @@ __pycache__
 *.log
 build
 dist
-pydbml.egg-info
+*.egg-info
 .mypy_cache
 .idea
