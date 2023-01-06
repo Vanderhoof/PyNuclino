@@ -3,6 +3,9 @@ These tests call live API and require API_KEY env var to be set.
 Beware of rate limiting while running these tests.
 At the time of writing there's a limit of 150 requests per minute.
 This test suite runs 34 requests.
+
+WARNING: These tests create test entities (and then delete them) in
+one of your workspaces.
 '''
 
 import os
