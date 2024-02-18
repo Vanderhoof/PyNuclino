@@ -53,7 +53,7 @@ class TestTeams(TestCaseWithKey):
 class TestUser(TestCaseWithKey):
     def test_normal(self):
         teams = self.client.get_teams() #1req
-        user_id = teams[0].createdUserId
+        user_id = teams[0].created_user_id
         result = self.client.get_user(user_id) #1req
         self.assertIsInstance(result, objects.User)
 

@@ -27,7 +27,7 @@ class User(NuclinoObject):
         self.first_name = props['firstName']
         self.last_name = props['lastName']
         self.email = props['email']
-        self.avatar_url = props['avatarUrl']
+        self.avatar_url = props.get('avatarUrl')
 
     def __repr__(self) -> str:
         return f'<User "{self.first_name} {self.last_name}">'
