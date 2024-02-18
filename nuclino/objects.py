@@ -17,6 +17,21 @@ class NuclinoObject:
         self.data = dict(props)
         self.nuclino = nuclino
 
+class User(NuclinoObject):
+    _object = "user"
+
+    def __init__(self, props: dict, nuclino):
+        super().__init__(props, nuclino)
+
+        self.id = props['id']
+        self.first_name = props['firstName']
+        self.last_name = props['lastName']
+        self.email = props['email']
+        self.avatar_url = props['avatarUrl']
+
+    def __repr__(self) -> str:
+        return f'<User "{self.first_name} {self.last_name}">'
+
 
 class Team(NuclinoObject):
     _object = "team"

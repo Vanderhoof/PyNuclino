@@ -2,7 +2,7 @@
 These tests call live API and require API_KEY env var to be set.
 Beware of rate limiting while running these tests.
 At the time of writing there's a limit of 150 requests per minute.
-This test suite runs 34 requests.
+This test suite runs 36 requests.
 
 WARNING: These tests create test entities (and then delete them) in
 one of your workspaces.
@@ -48,6 +48,14 @@ class TestTeams(TestCaseWithKey):
         team_id = teams[0].id
         result = self.client.get_team(team_id)
         self.assertIsInstance(result, objects.Team)
+
+
+class TestUser(TestCaseWithKey):
+    def test_normal(self):
+        teams = self.client.get_teams() #1req
+        user_id = teams[0].createdUserId
+        result = self.client.get_user(user_id) #1req
+        self.assertIsInstance(result, objects.User)
 
 
 class TestWorkspaces(TestCaseWithKey):

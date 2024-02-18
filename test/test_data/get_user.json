@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "data": {
+    "object": "user",
+    "id": "9bff403a-6e0a-4f17-beac-c4333bd719b4",
+    "firstName": "Thomas",
+    "lastName": "Anderson",
+    "email": "thomas@nuclino.com",
+    "avatarUrl": "https://files.nuclino.com/avatars/9bff403a-6e0a-4f1..."
+  }
+}

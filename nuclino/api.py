@@ -127,6 +127,18 @@ class Client:
 
 
 class Nuclino(Client):
+
+    def get_user(self, user_id: str):
+        '''
+        Get information associated with a specific user by ID.
+
+        :param user_id: ID of the user to get.
+
+        '''
+
+        path = f'/users/{user_id}'
+        return self.get(path)
+
     def get_teams(
         self,
         limit: Optional[int] = None,
@@ -285,7 +297,7 @@ class Nuclino(Client):
         :returns: the created Item or Collection object.
         '''
 
-        path = f'/items'
+        path = '/items'
         data = {'object': object}
         if workspace_id is not None:
             data['workspaceId'] = workspace_id
