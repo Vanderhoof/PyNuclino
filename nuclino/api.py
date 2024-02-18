@@ -128,12 +128,13 @@ class Client:
 
 class Nuclino(Client):
 
-    def get_user(self, user_id: str):
+    def get_user(self, user_id: str) -> Union[List, NuclinoObject, dict]:
         '''
         Get information associated with a specific user by ID.
 
         :param user_id: ID of the user to get.
 
+        :returns: a User object
         '''
 
         path = f'/users/{user_id}'
