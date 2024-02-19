@@ -54,6 +54,11 @@ class TestParse(TestCase):
         data = {"id": "1034eebc-b96a-42b7-92ea-6795d6440fda"}
         result = self.client.parse(data)
         self.assertEqual(result, data)
+    
+    def test_user(self):
+        data = open_data_file('get_user.json')
+        result = self.client.parse(data['data'])
+        self.assertIsInstance(result, objects.User)
 
     def test_team(self):
         data = open_data_file('get_team.json')

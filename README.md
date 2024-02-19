@@ -92,6 +92,10 @@ Initialization parameters:
 
 **Methods**
 
+`get_user(user_id)`
+
+Get a user by ID. Returns a single User object.
+
 `get_teams(limit=None, after=None)`
 
 List teams that you have access to. Returns list of Team objects.
@@ -147,6 +151,16 @@ Alias for `delete_item` method, works the same.
 `get_file(file_id)`
 
 Get a file by ID. Returns a single File instance.
+
+### User
+
+**Atrributes**
+
+* `id` (str) — user ID,
+* `first_name` (str) — user's first name,
+* `last_name` (str) — user's last name,
+* `email` (str) — user's email address 
+* `avatar_url` Optional(str) — URL address of the user's avatar image. None if the user has not set an avatar. 
 
 ### Team
 
